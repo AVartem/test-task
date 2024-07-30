@@ -1,0 +1,11 @@
+---
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata:
+  name: web-app-pdb
+spec:
+  minAvailable: 3 # Минимальное количество подов, которые должны оставаться доступными, чтобы поддерживать отказоустойчивость
+  selector:
+    matchLabels:
+      app: web-app # Используем метки для выбора подов, к которым применим данный PDB
+
